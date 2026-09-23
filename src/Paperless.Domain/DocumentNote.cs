@@ -7,4 +7,6 @@ public class DocumentNote
     public Guid DocumentId { get; set; }
     public string Text { get; set; } = string.Empty;
     public DateTimeOffset CreatedAt { get; set; }
+    
+    public Guid CreatedBy { get; set; }
 }

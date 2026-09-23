@@ -5,16 +5,19 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWORD: paperless
       POSTGRES_DB: paperless
+      
+    #healthcheck prüft regelmäßig ob die Postgres wirklich bereit ist
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U paperless -d paperless"]
       interval: 2s
       timeout: 5s
       retries: 20
-
+  #baut den container lt dockerfuile
   api:
     build: .
     ports:
       - "8080:8080"
+    #hier wird der connection string an die API übergeben 
     environment:
       ConnectionStrings__Paperless: Host=postgres;Port=5432;Database=paperless;Username=paperless;Password=paperless
     depends_on:

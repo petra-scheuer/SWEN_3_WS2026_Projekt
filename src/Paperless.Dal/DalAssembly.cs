@@ -4,7 +4,7 @@ using Paperless.Domain;
 
 namespace Paperless.Dal;
 
-/// Registriert DbContext und Repository, damit die API die Datenbank benutzen kann.
+/// Registriert DbContext und Repository, damit wir die Datenbank benutzen können.
 public static class DalAssembly
 {
     public static void AddDatabase(IServiceCollection services, string connectionString)
